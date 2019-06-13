@@ -1,0 +1,43 @@
+package com.wp.web.admin.[smallBeanName];
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.wp.bean.[beanName];
+import com.wp.bean.WpParams;
+import com.wp.service.admin.[smallBeanName].I[beanName]Service;
+
+/**
+ * 
+ * 包名:com.wp.web.[smallBeanName]
+ * 类名:[beanName]Controller  [description]
+ * 创建人:[author] 
+ * Email:[email]
+ * 时间：[createTime]
+ */
+@RequestMapping("sysmgr/admin/[smallBeanName]")
+@Controller
+public class [beanName]Controller {
+	@Autowired
+	private I[beanName]Service [smallBeanName]Service;
+	@RequestMapping("list")
+	public String list(WpParams params){
+		return "admin/[smallBeanName]/list";
+	}
+	
+	@RequestMapping("template")
+	public ModelAndView template(WpParams params){
+		ModelAndView modelAndView = new ModelAndView();
+		List<[beanName]> [smallBeanName]s = [smallBeanName]Service.find[beanName]s(params);
+		int count = [smallBeanName]Service.count(params);
+		modelAndView.addObject("[smallBeanName]s",[smallBeanName]s);
+		modelAndView.addObject("itemCount",count);
+		modelAndView.setViewName("admin/[smallBeanName]/template");
+		return modelAndView;
+	}
+	
+}

@@ -1,0 +1,50 @@
+package [servicePackage].[smallBeanName];
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.wp.bean.[beanName];
+import com.wp.bean.WpParams;
+import com.wp.dao.admin.[smallBeanName].I[beanName]Dao;
+import com.wp.service.admin.[smallBeanName].I[beanName]Service;
+
+
+/**
+ * 
+ * 包名:[servicePackage].[smallBeanName].impl
+ * 类名:I[beanName]Service  
+ * 创建人:[author]
+ * Email:[email]
+ * 时间：[createTime]
+ */
+@Service
+public class [beanName]Service implements I[beanName]Service {
+	@Autowired
+	private I[beanName]Dao [smallBeanName]Dao;
+	@Override
+	public List<[beanName]> find[beanName]s(WpParams params) {
+		return [smallBeanName]Dao.find[beanName]s(params);
+	}
+	@Override
+	public int count(WpParams params) {
+		return [smallBeanName]Dao.count(params);
+	}
+	@Override
+	public int save[beanName]([beanName] [smallBeanName]) {
+		return [smallBeanName]Dao.save[beanName]([smallBeanName]);
+	}
+	@Override
+	public int del[beanName](WpParams params) {
+		return [smallBeanName]Dao.del[beanName](params);
+	}
+	@Override
+	public [beanName] get[beanName](Integer id) {
+		return [smallBeanName]Dao.get[beanName](id);
+	}
+	@Override
+	public int update[beanName]([beanName] [smallBeanName]) {
+		return [smallBeanName]Dao.update[beanName]([smallBeanName]);
+	}
+}

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wp.dao.admin.[smallBeanName].I[beanName]Dao">
+	<select id="find[beanName]s" resultType="[beanName]" parameterType="WpParams">
+		SELECT id,title,content,create_time AS createTime,update_time AS updateTime,
+			is_delete AS isDelete
+		FROM 
+		wp_[smallBeanName]
+		<where>
+			<if test="@com.wp.util.Utils@isNotEmpty(keyword)">
+				title LIKE '%${keyword}%' 
+			</if>
+		</where>
+		<if test="@com.wp.util.Utils@isNotEmpty(order)">
+			ORDER BY ${order}
+		</if>
+		LIMIT #{pageNo}, #{pageSize}	
+	</select>
+	
+	<select id="count" resultType="int" parameterType="WpParams">
+		SELECT 
+			count(1)
+		FROM 
+		wp_[smallBeanName]
+		<trim prefix="WHERE" prefixOverrides="AND | OR">
+			<if test="@com.wp.util.Utils@isNotEmpty(channelId)">
+				channel_id = #{channelId}
+			</if>
+			<if test="@com.wp.util.Utils@isNotEmpty(keyword)">
+				 title LIKE '%${keyword}%' 
+			</if>
+		</trim>
+	</select>
+	<!-- 增加 -->
+	<insert id="save[beanName]" parameterType="[beanName]">
+		INSERT INTO FORM wp_[smallBeanName](
+			title,
+			content,
+			create_time,
+			update_time,
+			is_delete
+		)VALUES (
+			#{title},
+			#{content},
+			#{createTime},
+			#{updateTime},
+			#{isDelete}
+		)
+	</insert>
+	<!-- 删除 -->
+	<update id="del[beanName]" parameterType="WpParams">
+		UPDATE wp_[smallBeanName] SET is_delete = #{isDelete}
+	</update>
+	<!-- 查询 -->
+	<select id="get[beanName]" resultType="[beanName]" parameterType="int">
+		SELECT id,title,content,create_time AS createTime,update_time AS updateTime,
+			is_delete AS isDelete
+		FROM 
+		wp_[smallBeanName] WHERE id = #{0}
+	</select>
+	<update id="update[beanName]"  parameterType="[beanName]">
+		UPDATE wp_[smallBeanName] SET 
+		<trim prefix="WHERE" prefixOverrides="AND | OR">
+			<if test="@com.wp.util.Utils@isNotEmpty(title)">
+				title = #{title}
+			</if>
+			<if test="@com.wp.util.Utils@isNotEmpty(content)">
+				 content = #{content} 
+			</if>
+			<if test="@com.wp.util.Utils@isNotEmpty(updateTime)">
+				 update_time = #{updateTime} 
+			</if>
+			<if test="@com.wp.util.Utils@isNotEmpty(updateTime)">
+				 is_delete = #{isDelete} 
+			</if>
+			
+		</trim>
+		WHERE id = #{id}
+	</update>
+</mapper>  

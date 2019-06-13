@@ -1,0 +1,97 @@
+package [daoPackage].[smallBeanName];
+
+import java.util.List;
+
+import com.wp.bean.[beanName];
+import com.wp.bean.WpParams;
+
+/**
+ * 
+ * 
+ * 包名:[daoPackage].[smallBeanName] 
+ * 类名:I[beanName]Dao  
+ * 创建人:[author]
+ * Email:[email]
+ * 时间：[createTime]
+ */
+public interface I[beanName]Dao {
+	/**
+	 * 
+	 * 获取类容
+	 * [daoPackage].[smallBeanName] 
+	 * 方法名：find[beanName]s
+	 * 创建人：[author]
+	 * 时间：[createTime] 
+	 * @param params
+	 * @return List<Content>
+	 * @exception 
+	 * @since  1.0.0
+	 */
+	public List<[beanName]> find[beanName]s(WpParams params);
+	/**
+	 * 
+	 * 获取内容总数
+	 * [daoPackage].[smallBeanName] 
+	 * 方法名：find[beanName]s
+	 * 创建人：[author]
+	 * 时间：[createTime] 
+	 * @param params
+	 * @return int
+	 * @exception 
+	 * @since  1.0.0
+	 */
+	public int count(WpParams params);
+	/**
+	 * 保存 [description]
+	 * [daoPackage].[smallBeanName] 
+	 * 方法名：find[beanName]s
+	 * 创建人：[author]
+	 * 时间：[createTime] 
+	 * @param [smallBeanName]
+	 * @return int
+	 * @exception 
+	 * @since  1.0.0
+	 */
+	public int save[beanName]([beanName] [smallBeanName]);
+	
+	/**
+	 * 删除 [description]
+	 * [daoPackage].[smallBeanName] 
+	 * 方法名：find[beanName]s
+	 * 创建人：[author]
+	 * 时间：[createTime] 
+	 * @param params
+	 * @return int
+	 * @exception 
+	 * @since  1.0.0
+	 */
+	public int del[beanName](WpParams params);
+	
+	/**
+	 * 查询 [description]
+	 * [daoPackage].[smallBeanName] 
+	 * 方法名：find[beanName]s
+	 * 创建人：[author]
+	 * 时间：[createTime] 
+	 * @param id
+	 * @return int
+	 * @exception 
+	 * @since  1.0.0
+	 */
+	public [beanName] get[beanName](Integer id);
+	
+	/**
+	 * 修改 [description]
+	 * [daoPackage].[smallBeanName] 
+	 * 方法名：find[beanName]s
+	 * 创建人：[author]
+	 * 时间：[createTime] 
+	 * @param id
+	 * @return int
+	 * @exception 
+	 * @since  1.0.0
+	 */
+	public int update[beanName]([beanName] [smallBeanName]);
+	
+	
+}

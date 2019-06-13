@@ -1,0 +1,58 @@
+package [beanPackage];
+import java.util.Date;
+
+/**
+ * 
+ * 
+ * [description]
+ * 类名:[beanName]
+ * 创建人:[author]
+ * Email:[email]
+ * 时间：[createTime]
+ */
+public class [beanName] implements java.io.Serializable {
+	private Integer id;/* 主键 */
+	private String title;// 标题
+	private String content;// 内容
+	private Date createTime;// 创建时间
+	private Date updateTime;// 更新时间
+	private Integer isDelete;// 0未删除1删除
+	
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	public String getContent() {
+		return content;
+	}
+	public void setContent(String content) {
+		this.content = content;
+	}
+	public Date getCreateTime() {
+		return createTime;
+	}
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
+	}
+	public Date getUpdateTime() {
+		return updateTime;
+	}
+	public void setUpdateTime(Date updateTime) {
+		this.updateTime = updateTime;
+	}
+	public Integer getIsDelete() {
+		return isDelete;
+	}
+	public void setIsDelete(Integer isDelete) {
+		this.isDelete = isDelete;
+	}
+
+}
